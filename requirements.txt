@@ -9,3 +9,4 @@ phonenumberslite==8.12.52
 Pillow==9.2.0
 sqlparse==0.4.2
 whitenoise==6.2.0
+backports.zoneinfo;python_version<"3.9"
