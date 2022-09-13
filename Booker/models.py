@@ -15,8 +15,8 @@ class PaymentInformation(models.Model):
     account_holder = models.CharField(max_length=55)
     account_number = models.IntegerField()
     phone_number = models.IntegerField()
-    updated = models.DateTimeField(auto_now=True)
-    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True, null=True)
+    created = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
         return str(self.route.name)
@@ -27,8 +27,8 @@ class FinishPayment(models.Model):
     paid_by=models.CharField(max_length=255, null=True)
     transaction_id=models.CharField(max_length=255, null=True, blank=True)
     screenshot= models.ImageField(null=True)
-    updated=models.DateTimeField(auto_now=True)
-    created=models.DateTimeField(auto_now_add=True)
+    updated=models.DateTimeField(auto_now=True, null=True)
+    created=models.DateTimeField(auto_now_add=True, null=True)
     
     def __str__(self):
         return self.paid_by
@@ -37,7 +37,8 @@ class FinishPayment(models.Model):
 class FinishPaymentStatus(models.Model):
     fnishpayment=models.OneToOneField(FinishPayment, on_delete=models.CASCADE, primary_key=True, related_name="finishpayment_status")
     status=models.BooleanField(default=False, null=True)
-    
+    updated = models.DateTimeField(auto_now=True, null=True)
+    created = models.DateTimeField(auto_now_add=True, null=True)
     def __str__(self):
         return str(self.status)
     
@@ -45,7 +46,8 @@ class FinishPaymentStatus(models.Model):
 class AssignSeat(models.Model):
      booking=models.OneToOneField(Booking, on_delete=models.CASCADE, primary_key=True, related_name="assign_seat")
      seat_number=models.CharField(max_length=20, null=True)
-     
+     updated = models.DateTimeField(auto_now=True, null=True)
+     created = models.DateTimeField(auto_now_add=True, null=True)
      def __str__(self):
         return str(self.seat_number)
     

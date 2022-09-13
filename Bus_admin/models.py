@@ -11,8 +11,8 @@ class Single_Bus(models.Model):
     bus_type=models.CharField(max_length=200, null=True)
     bus_detail=models.CharField(max_length=200, null=True)
     number_of_seats=models.IntegerField()
-    updated=models.DateTimeField(auto_now=True)
-    created=models.DateTimeField(auto_now_add=True)
+    updated=models.DateTimeField(auto_now=True, null=True)
+    created=models.DateTimeField(auto_now_add=True, null=True)
     
     def __str__(self):
         return str((self.bus.name, self.bus_number))
@@ -29,8 +29,8 @@ class Route(models.Model):
     travel_aproximate_time=models.CharField(max_length=255, null=True)
     single_seat_price=models.IntegerField(null=True)
     travel_facilities=models.CharField(max_length=255, null=True)
-    updated=models.DateTimeField(auto_now=True)
-    created=models.DateTimeField(auto_now_add=True)
+    updated=models.DateTimeField(auto_now=True, null=True)
+    created=models.DateTimeField(auto_now_add=True, null=True)
     
     def __str__(self):
         return str(self.name)
@@ -44,7 +44,8 @@ class SubRoute(models.Model):
     sub_route_admin=models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     main_route=models.ForeignKey(Route, on_delete=models.CASCADE, null=True)
     bus=models.ForeignKey(Single_Bus, on_delete=models.SET_NULL, null=True)
-    
+    updated = models.DateTimeField(auto_now=True, null=True)
+    created = models.DateTimeField(auto_now_add=True, null=True)
     
     def __str__(self):
         return str((self.main_route.name, self.bus.bus.name, self.bus.bus_number)) 
