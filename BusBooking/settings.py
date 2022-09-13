@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-h9o7bj&7k6jj&9#_#_cnmt$aotuu&z45&qehjq3dar07vymrb&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1','afroperia-bus.herokuapp.com']
 
 
 # Application definition
@@ -83,26 +83,26 @@ WSGI_APPLICATION = 'BusBooking.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'bus_booking_mine',
-        'USER':'root',
-        'PASSWORD':'password',
-        'HOST':'127.0.0.1',
-        'PORT':'3306',
-              'OPTIONS': {  
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  
-        }  
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'bus_booking_mine',
+#         'USER':'root',
+#         'PASSWORD':'password',
+#         'HOST':'127.0.0.1',
+#         'PORT':'3306',
+#               'OPTIONS': {  
+#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  
+#         }  
+#     }
+# }
 
 
 # Password validation
@@ -145,7 +145,6 @@ STATIC_ROOT =  os.path.join(BASE_DIR, 'static')
 # STATICFILES_DIRS = [
 #     BASE_DIR / 'static'
 # ]
-STATIC_ROOT =os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_ROOT=os.path.join(BASE_DIR, 'static/images')
 
 # Default primary key field type
