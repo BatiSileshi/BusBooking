@@ -9,12 +9,18 @@
     <section>
         <div class="container">
 
+
             <div class="row gy-4">
                 {% for subroute in subroutes %}
                 <div class="col-lg-4 col-md-4">
                     <div class="card">
+                        <!-- 
+                        <div class="card-img">
 
-                        <h3 class="text-center">{{route.name}}</h3>
+                            <img src="{{subroute.bus.bus.bus_photo.url}}" alt="Bus Image" class="img-fluid" />
+                        </div> -->
+
+                        <h3 class="text-center ">{{route.name}}</h3>
                         <ul>
                             <li>Traveling bus: {{subroute.bus.bus.name}}</li>
                             <li>Traveling bus type: {{subroute.bus.plate_number}} - {{subroute.bus.bus_number}}</li>
@@ -29,7 +35,7 @@
                             <li>Bus facilities: {{route.travel_facilities}}</li>
                         </ul>
 
-                        <a href="{% url 'booking' subroute.id %}" class="text-center"><button class="btn btn-primary">Book Now</button></a>
+                        <a href="{% url 'booking' subroute.id %} " class="text-center "><button class="btn btn-primary ">Book Now</button></a>
                     </div>
                 </div>
                 {%endfor%}

@@ -1,18 +1,11 @@
 {% extends 'customer/customermain.html'%} {% block content%}
-
-
-
-
 <main id="main">
-
-
     <section id="service" class="services pt-0">
         <div class="container">
 
             <div class="section-header">
                 <span>Pay Through</span>
                 <h2>Pay Through</h2>
-
             </div>
 
             <div class="row gy-4">
@@ -22,7 +15,7 @@
                         <h5 class="text-center">{{ payment_info.route.name }}</h5>
                         <ul>
                             {% if payment_info.payment_method.logo %}
-                            <img src="{{ payment_info.payment_method.logo.url }}" alt="logo" style="width: 70px; height: 50px;"> {%endif%}
+                            <img src="{{payment_info.payment_method.logo.url}}" alt="logo" style="width: 70px; height: 50px;"> {%endif%}
                             <li>{{payment_info.payment_method.name }}</li>
                             <li>{{payment_info.payment_method.type}}</li>
                             <li>{{payment_info.payment_method.description}}</li>

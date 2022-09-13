@@ -19,7 +19,7 @@ class PaymentInformation(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return str(self.payment_method.name)
+        return str(self.route.name)
     
 class FinishPayment(models.Model):
     booking=models.OneToOneField(Booking, on_delete=models.CASCADE, primary_key=True, related_name="finishpymnt_booking")
