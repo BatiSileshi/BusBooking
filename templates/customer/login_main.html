@@ -12,7 +12,14 @@
 
 <body class="hold-transition login-page">
 
-    {% block content %} {% endblock %}
+   {% if messages %}
+
+    <ul class="messages">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %} {% block content %} {% endblock %}
 
     <script src="{% static 'Customer_assets/loginjs/adminlte.min.js '%}"></script>
 </body>
